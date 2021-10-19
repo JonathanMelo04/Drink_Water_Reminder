@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Dados/Documents/ASProjects/DrinkWaterReminder/app/src/main/res/drawable/bg_degrade_button.xml" value="0.2203125" />
         <entry key="..\:/Dados/Documents/ASProjects/DrinkWaterReminder/app/src/main/res/drawable/container_header.xml" value="0.2203125" />
         <entry key="..\:/Dados/Documents/ASProjects/DrinkWaterReminder/app/src/main/res/drawable/ic_refresh.xml" value="0.10833333333333334" />
         <entry key="..\:/Dados/Documents/ASProjects/DrinkWaterReminder/app/src/main/res/layout/activity_main.xml" value="0.22" />
