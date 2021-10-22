@@ -3,6 +3,7 @@ package com.example.drinkwater_reminder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import com.example.drinkwater_reminder.model.CalcularIngestaoDiaria
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,12 +13,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var txt_resultado_ml: TextView
     private lateinit var ic_redefinir_dados: ImageView
 
+    private lateinit var calcularIngestaoDiaria: CalcularIngestaoDiaria
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         supportActionBar!!.hide()
         IniciarComponentes()
+        calcularIngestaoDiaria = CalcularIngestaoDiaria()
 
         bt_calcular.setOnClickListener {
             if (edit_peso.toString().isEmpty()) {
@@ -27,6 +31,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 val peso = edit_peso.text.toString().toDouble()
                 val idade = edit_idade.text.toString().toInt()
+                calcularIngestaoDiaria.CalcularTotalML(peso,idade)
             }
         }
 
