@@ -113,7 +113,7 @@
         android:id="@+id/txt_resultado_ml"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3851,8 ml"
+        android:text=""
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="35sp"
         android:textStyle="bold"

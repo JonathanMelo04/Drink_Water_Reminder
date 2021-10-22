@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import com.example.drinkwater_reminder.model.CalcularIngestaoDiaria
+import java.text.NumberFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var ic_redefinir_dados: ImageView
 
     private lateinit var calcularIngestaoDiaria: CalcularIngestaoDiaria
+    private var resultadoML = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,14 +27,18 @@ class MainActivity : AppCompatActivity() {
         calcularIngestaoDiaria = CalcularIngestaoDiaria()
 
         bt_calcular.setOnClickListener {
-            if (edit_peso.toString().isEmpty()) {
+            if (edit_peso.text.toString().isEmpty()) {
                 Toast.makeText(this, R.string.toast_informe_peso, Toast.LENGTH_SHORT).show()
-            } else if (edit_idade.toString().isEmpty()) {
+            } else if (edit_idade.text.toString().isEmpty()) {
                 Toast.makeText(this, R.string.toast_informe_idade, Toast.LENGTH_SHORT).show()
             } else {
                 val peso = edit_peso.text.toString().toDouble()
                 val idade = edit_idade.text.toString().toInt()
                 calcularIngestaoDiaria.CalcularTotalML(peso,idade)
+                resultadoML = calcularIngestaoDiaria.ResultadoML()
+                val formatar = NumberFormat.getNumberInstance(Locale("pt","BR"))
+                formatar.isGroupingUsed = false
+                txt_resultado_ml.text = formatar.format(resultadoML) + " " + "ml"
             }
         }
 
