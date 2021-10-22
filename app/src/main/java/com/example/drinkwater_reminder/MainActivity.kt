@@ -1,8 +1,10 @@
 package com.example.drinkwater_reminder
 
 import android.app.TimePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.AlarmClock
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.example.drinkwater_reminder.model.CalcularIngestaoDiaria
@@ -79,6 +81,20 @@ class MainActivity : AppCompatActivity() {
                     txt_minutos.text = String.format("%02d",minutes)
                 },horaAtual,minutosAtuais, true)
             timePickerDialog.show()
+        }
+
+        bt_alarme.setOnClickListener{
+            if(!txt_hora.text.toString().isEmpty() && !txt_minutos.text.toString().isEmpty()){
+                val intent = Intent(AlarmClock.ACTION_SET_ALARM)
+                intent.putExtra(AlarmClock.EXTRA_HOUR, txt_hora.text.toString().toInt())
+                intent.putExtra(AlarmClock.EXTRA_MINUTES, txt_minutos.text.toString().toInt())
+                intent.putExtra(AlarmClock.EXTRA_MESSAGE, getString(R.string.alarme_mensagem))
+                startActivity(intent)
+
+                if(intent.resolveActivity(packageManager) != null){
+                    startActivity(intent)
+                }
+            }
         }
     }
 
