@@ -3,6 +3,7 @@ package com.example.drinkwater_reminder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import com.example.drinkwater_reminder.model.CalcularIngestaoDiaria
 import java.text.NumberFormat
 import java.util.*
@@ -42,6 +43,21 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        ic_redefinir_dados.setOnClickListener{
+            val alertDialog = AlertDialog.Builder(this)
+            alertDialog.setTitle(R.string.dialog_titulo)
+                .setMessage(R.string.dialog_desc)
+                .setPositiveButton("OK", {dialogInterface, i ->
+                    edit_peso.setText("")
+                    edit_idade.setText("")
+                    txt_resultado_ml.text = ""
+                })
+            alertDialog.setNegativeButton("Cancelar", {dialogInterface, i ->
+
+            })
+            val dialog = alertDialog.create()
+            dialog.show()
+        }
     }
 
     private fun IniciarComponentes() {
