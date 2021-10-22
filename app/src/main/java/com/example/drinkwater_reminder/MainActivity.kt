@@ -16,17 +16,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private lateinit var edit_peso: EditText
-    private lateinit var edit_idade: EditText
-    private lateinit var bt_calcular: Button
-    private lateinit var txt_resultado_ml: TextView
-    private lateinit var ic_redefinir_dados: ImageView
-
-    private lateinit var bt_lembrete: Button
-    private lateinit var bt_alarme: Button
-    private lateinit var txt_hora: TextView
-    private lateinit var txt_minutos: TextView
-
     private lateinit var calcularIngestaoDiaria: CalcularIngestaoDiaria
     private var resultadoML = 0.0
 
@@ -105,17 +94,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-//    private fun IniciarComponentes() {
-//        edit_peso = findViewById(R.id.edit_peso)
-//        edit_idade = findViewById(R.id.edit_idade)
-//        bt_calcular = findViewById(R.id.bt_calcular)
-//        txt_resultado_ml = findViewById(R.id.txt_resultado_ml)
-//        ic_redefinir_dados = findViewById(R.id.ic_redefinir)
-//
-//        bt_lembrete = findViewById(R.id.bt_definir_lembrete)
-//        bt_alarme = findViewById(R.id.bt_definir_alarme)
-//        txt_hora = findViewById(R.id.txt_hora)
-//        txt_minutos = findViewById(R.id.txt_minuto)
-//    }
 }
